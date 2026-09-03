@@ -1,425 +1,1023 @@
 :root {
-  --fondo: #f5f6fb;
+  --fondo: #fff7fa;
   --panel: #ffffff;
   --texto: #27304a;
   --texto-suave: #727a92;
-  --borde: #e4e7f1;
-  --primario: #6c63d9;
-  --primario-hover: #574fc5;
-  --primario-suave: #f0efff;
-  --secundario: #f1f3f9;
+  --borde: #f0dfe6;
+
+  --primario: #e75480;
+  --primario-hover: #c83e68;
+  --primario-suave: #fce8ef;
+
+  --secundario: #fff0f5;
   --verde: #26a87b;
   --rojo: #df5b6c;
-  --sombra: 0 14px 40px rgba(56, 62, 99, .09);
+
+  --sombra: 0 14px 40px rgba(151, 65, 98, .09);
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
   font-family: "Trebuchet MS", Arial, sans-serif;
+
   background:
-    radial-gradient(circle at top left, rgba(108, 99, 217, .10), transparent 27rem),
+    radial-gradient(
+      circle at top left,
+      rgba(231, 84, 128, .12),
+      transparent 27rem
+    ),
     var(--fondo);
+
   color: var(--texto);
 }
 
-button, input { font: inherit; }
+button,
+input {
+  font: inherit;
+}
+
+
+/* =========================
+   CONTENEDOR PRINCIPAL
+========================= */
 
 .app {
   width: min(1500px, 94vw);
   margin: 28px auto 60px;
+
   display: grid;
   gap: 22px;
 }
+
+
+/* =========================
+   ENCABEZADO
+========================= */
 
 .hero {
   display: flex;
   align-items: center;
   gap: 20px;
+
   padding: 30px 34px;
+
   border-radius: 28px;
+
   color: #fff;
-  background: linear-gradient(135deg, #6c63d9, #887fe8 58%, #a79ff4);
-  box-shadow: 0 18px 45px rgba(89, 80, 190, .22);
+
+  background:
+    linear-gradient(
+      135deg,
+      #e75480,
+      #ee7da0 58%,
+      #f4aac0
+    );
+
+  box-shadow:
+    0 18px 45px rgba(200, 62, 104, .22);
 }
 
 .hero-icon {
   width: 76px;
   height: 76px;
+
   border-radius: 22px;
+
   display: grid;
   place-items: center;
+
   flex: 0 0 auto;
+
   font-size: 2.35rem;
-  background: rgba(255,255,255,.17);
-  border: 1px solid rgba(255,255,255,.24);
+
+  background: rgba(255, 255, 255, .17);
+
+  border:
+    1px solid rgba(255, 255, 255, .24);
 }
 
 .eyebrow {
   margin: 0 0 5px;
+
   font-size: .78rem;
   font-weight: 900;
+
   letter-spacing: .16em;
+
   opacity: .82;
 }
 
-h1, h2, h3 { margin: 0; }
-h1 { font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1; }
-h2 { font-size: 1.55rem; }
-h3 { font-size: 1.08rem; }
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1;
+}
+
+h2 {
+  font-size: 1.55rem;
+}
+
+h3 {
+  font-size: 1.08rem;
+}
 
 .hero-text {
   margin: 10px 0 0;
+
   max-width: 820px;
+
   line-height: 1.5;
-  color: rgba(255,255,255,.87);
+
+  color: rgba(255, 255, 255, .90);
 }
 
+
+/* =========================
+   PANELES
+========================= */
+
 .panel {
-  background: rgba(255,255,255,.98);
-  border: 1px solid rgba(228,231,241,.85);
+  background: rgba(255, 255, 255, .98);
+
+  border:
+    1px solid rgba(240, 223, 230, .90);
+
   border-radius: 26px;
+
   padding: 26px;
+
   box-shadow: var(--sombra);
 }
 
 .titulo-seccion {
   display: flex;
   align-items: center;
+
   gap: 14px;
+
   margin-bottom: 24px;
 }
 
-.titulo-seccion.compacto { margin-bottom: 18px; }
-.titulo-seccion p, .subtexto { margin: 5px 0 0; color: var(--texto-suave); font-size: .92rem; }
+.titulo-seccion.compacto {
+  margin-bottom: 18px;
+}
+
+.titulo-seccion p,
+.subtexto {
+  margin: 5px 0 0;
+
+  color: var(--texto-suave);
+
+  font-size: .92rem;
+}
 
 .numero-paso {
   width: 42px;
   height: 42px;
+
   display: grid;
   place-items: center;
+
   flex: 0 0 auto;
+
   border-radius: 14px;
+
   background: var(--primario-suave);
+
   color: var(--primario);
+
   font-weight: 900;
   font-size: 1.15rem;
 }
 
+
+/* =========================
+   FILAS
+========================= */
+
 .fila {
   display: flex;
   align-items: center;
+
   gap: 12px;
+
   margin-bottom: 18px;
 }
 
 .anio-fila {
   width: fit-content;
+
   padding: 10px 14px;
+
   border-radius: 14px;
-  background: #fafbfe;
+
+  background: #fffafb;
+
   border: 1px solid var(--borde);
 }
 
-.fila label { font-weight: 800; }
+.fila label {
+  font-weight: 800;
+}
 
-input[type="number"], .persona-input {
+
+/* =========================
+   INPUTS
+========================= */
+
+input[type="number"],
+.persona-input {
   padding: 11px 13px;
-  border: 2px solid var(--borde);
+
+  border:
+    2px solid var(--borde);
+
   border-radius: 12px;
+
   color: var(--texto);
+
   background: #fff;
+
   outline: none;
+
   transition: .2s ease;
 }
 
-input[type="number"] { width: 100px; }
-input[type="number"]:focus, .persona-input:focus {
-  border-color: #aca6ef;
-  box-shadow: 0 0 0 4px rgba(108,99,217,.10);
+input[type="number"] {
+  width: 100px;
 }
 
-.bloque { margin-top: 24px; }
-.divisor { padding-top: 24px; border-top: 1px solid var(--borde); }
+input[type="number"]:focus,
+.persona-input:focus {
+  border-color: #ee9db6;
 
-.encabezado-bloque, .resultado-header {
+  box-shadow:
+    0 0 0 4px rgba(231, 84, 128, .10);
+}
+
+
+/* =========================
+   BLOQUES
+========================= */
+
+.bloque {
+  margin-top: 24px;
+}
+
+.divisor {
+  padding-top: 24px;
+
+  border-top:
+    1px solid var(--borde);
+}
+
+.encabezado-bloque,
+.resultado-header {
   display: flex;
+
   justify-content: space-between;
   align-items: center;
+
   gap: 14px;
+
   flex-wrap: wrap;
 }
 
+
+/* =========================
+   PERSONAS
+========================= */
+
 .lista-personas {
   display: grid;
+
   gap: 10px;
+
   margin-top: 13px;
 }
 
 .persona-fila {
   display: grid;
-  grid-template-columns: minmax(180px, 1fr) auto auto;
+
+  grid-template-columns:
+    minmax(180px, 1fr)
+    auto
+    auto;
+
   gap: 12px;
+
   align-items: center;
+
   padding: 9px;
-  border: 1px solid var(--borde);
+
+  border:
+    1px solid var(--borde);
+
   border-radius: 16px;
-  background: #fcfcff;
+
+  background: #fffbfc;
 }
+
+
+/* =========================
+   MESES
+========================= */
 
 .grid-meses {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(128px, 1fr));
+
   gap: 9px;
+
   margin-top: 12px;
 }
 
+
+/* =========================
+   DÍAS DE LA SEMANA
+========================= */
+
 .grid-dias-semana {
   display: grid;
-  grid-template-columns: repeat(5, minmax(110px, 1fr));
+
+  grid-template-columns:
+    repeat(5, minmax(110px, 1fr));
+
   gap: 9px;
+
   margin-top: 12px;
 }
+
+
+/* =========================
+   CHECKS
+========================= */
 
 .check-card {
   display: flex;
   align-items: center;
+
   gap: 8px;
-  border: 2px solid var(--borde);
+
+  border:
+    2px solid var(--borde);
+
   border-radius: 13px;
+
   padding: 10px 12px;
+
   cursor: pointer;
+
   user-select: none;
+
   background: #fff;
+
   font-weight: 700;
+
   transition: .16s ease;
 }
 
-.check-card:hover { border-color: #c3beef; background: #fbfaff; }
-.check-card input { transform: scale(1.15); accent-color: var(--primario); }
+.check-card:hover {
+  border-color: #f0b7c9;
+
+  background: #fff8fa;
+}
+
+.check-card input {
+  transform: scale(1.15);
+
+  accent-color: var(--primario);
+}
+
+
+/* =========================
+   BOTONES
+========================= */
 
 .btn {
   border: none;
+
   border-radius: 12px;
+
   padding: 10px 15px;
+
   font-weight: 800;
+
   cursor: pointer;
-  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+
+  transition:
+    transform .15s ease,
+    box-shadow .15s ease,
+    background .15s ease;
 }
 
-.btn:hover:not(:disabled) { transform: translateY(-1px); }
-.btn:disabled { opacity: .45; cursor: not-allowed; }
-.btn.primario { background: var(--primario); color: #fff; box-shadow: 0 8px 18px rgba(108,99,217,.20); }
-.btn.primario:hover { background: var(--primario-hover); }
-.btn.secundario { background: var(--secundario); color: var(--texto); }
-.btn.mini { background: #f0f1f6; color: #596078; padding: 7px 10px; }
-.btn.grande { min-height: 50px; padding-inline: 20px; }
-.btn.pdf { background: var(--verde); color: #fff; box-shadow: 0 8px 18px rgba(38,168,123,.18); }
-.btn.pdf:hover:not(:disabled) { background: #208f69; }
+.btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
 
-.acciones-mini, .acciones-principales, .acciones-resultado {
+.btn:disabled {
+  opacity: .45;
+
+  cursor: not-allowed;
+}
+
+.btn.primario {
+  background: var(--primario);
+
+  color: #fff;
+
+  box-shadow:
+    0 8px 18px rgba(231, 84, 128, .20);
+}
+
+.btn.primario:hover {
+  background: var(--primario-hover);
+}
+
+.btn.secundario {
+  background: var(--secundario);
+
+  color: var(--texto);
+}
+
+.btn.mini {
+  background: #fff0f5;
+
+  color: #795363;
+
+  padding: 7px 10px;
+}
+
+.btn.grande {
+  min-height: 50px;
+
+  padding-inline: 20px;
+}
+
+
+/* BOTÓN PDF */
+
+.btn.pdf {
+  background: var(--verde);
+
+  color: #fff;
+
+  box-shadow:
+    0 8px 18px rgba(38, 168, 123, .18);
+}
+
+.btn.pdf:hover:not(:disabled) {
+  background: #208f69;
+}
+
+
+/* =========================
+   ACCIONES
+========================= */
+
+.acciones-mini,
+.acciones-principales,
+.acciones-resultado {
   display: flex;
+
   gap: 10px;
+
   flex-wrap: wrap;
 }
 
-.acciones-principales { margin-top: 25px; }
+.acciones-principales {
+  margin-top: 25px;
+}
+
+
+/* =========================
+   MENSAJES
+========================= */
 
 .mensaje {
   min-height: 22px;
+
   margin: 15px 0 0;
+
   font-weight: 800;
+
   color: var(--primario);
 }
 
-.oculto { display: none !important; }
-.cerrar { margin-left: auto; }
+.oculto {
+  display: none !important;
+}
+
+.cerrar {
+  margin-left: auto;
+}
+
+
+/* =========================
+   CALENDARIOS
+========================= */
 
 .calendarios {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(390px, 1fr));
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(390px, 1fr));
+
   gap: 18px;
 }
 
 .mes {
-  border: 1px solid var(--borde);
+  border:
+    1px solid var(--borde);
+
   border-radius: 18px;
+
   overflow: hidden;
+
   background: #fff;
-  box-shadow: 0 7px 20px rgba(51,57,91,.05);
+
+  box-shadow:
+    0 7px 20px rgba(151, 65, 98, .06);
 }
+
+
+/* TÍTULO DEL MES */
 
 .mes h3 {
   margin: 0;
+
   text-align: center;
+
   padding: 13px;
+
   color: #fff;
-  background: linear-gradient(135deg, #756de0, #938cec);
+
+  background:
+    linear-gradient(
+      135deg,
+      #e75480,
+      #ee8dab
+    );
+
   font-size: 1.08rem;
 }
 
+
+/* =========================
+   TABLA CALENDARIO
+========================= */
+
 .tabla-calendario {
   width: 100%;
+
   border-collapse: collapse;
+
   table-layout: fixed;
 }
 
 .tabla-calendario th,
 .tabla-calendario td {
-  border: 1px solid #e8eaf2;
+  border:
+    1px solid #f0e4e8;
+
   vertical-align: top;
 }
 
 .tabla-calendario th {
   padding: 8px 4px;
-  background: #f7f7fc;
-  color: #656c83;
+
+  background: #fff7fa;
+
+  color: #795d68;
+
   font-size: .78rem;
+
   text-transform: uppercase;
 }
 
+
+/* =========================
+   CELDAS
+========================= */
+
 .celda-dia {
   min-height: 92px;
+
   height: 92px;
+
   padding: 6px;
+
   background: #fff;
 }
 
 .numero-dia {
   width: 27px;
   height: 27px;
+
   display: grid;
   place-items: center;
+
   margin-bottom: 6px;
+
   border-radius: 8px;
+
   font-weight: 900;
-  color: #51586f;
-  background: #f3f4f9;
+
+  color: #6f5660;
+
+  background: #fff0f5;
 }
+
+
+/* =========================
+   NOMBRES DE LOS TURNOS
+========================= */
 
 .nombre-turno {
   display: block;
+
   margin: 4px 0;
+
   padding: 5px 7px;
+
   border-radius: 8px;
+
   background: var(--primario-suave);
-  color: #5149ab;
+
+  color: #b23b61;
+
   font-size: .84rem;
+
   font-weight: 800;
+
   overflow-wrap: anywhere;
 }
 
-.dia-inactivo { background: #f6f7f9 !important; color: #b0b4c0; }
-.dia-inactivo .numero-dia { color: #aeb2bc; background: #eceef2; }
+
+/* =========================
+   DÍAS INACTIVOS
+========================= */
+
+.dia-inactivo {
+  background: #f7f7f8 !important;
+
+  color: #b0b4c0;
+}
+
+.dia-inactivo .numero-dia {
+  color: #aeb2bc;
+
+  background: #eceef2;
+}
+
+
+/* =========================
+   SELECTOR DE FECHA
+========================= */
 
 .selector-fecha {
   display: flex;
   align-items: center;
+
   gap: 5px;
+
   font-size: .78rem;
-  color: #6d7386;
+
+  color: #795d68;
 }
 
-.selector-fecha input { transform: scale(1.05); accent-color: var(--primario); }
+.selector-fecha input {
+  transform: scale(1.05);
+
+  accent-color: var(--primario);
+}
+
+
+/* =========================
+   RESUMEN
+========================= */
 
 .resumen {
   margin: 0 0 20px;
+
   display: flex;
+
   gap: 8px;
+
   flex-wrap: wrap;
 }
 
-.resumen:empty { display: none; }
+.resumen:empty {
+  display: none;
+}
 
 .resumen-item {
-  background: #f4f3ff;
-  color: #5650a8;
+  background: #fce8ef;
+
+  color: #b23b61;
+
   padding: 8px 11px;
-  border: 1px solid #e8e5ff;
+
+  border:
+    1px solid #f5ccd9;
+
   border-radius: 10px;
+
   font-size: .86rem;
+
   font-weight: 800;
 }
 
+
+/* =========================
+   DISPONIBILIDAD PERSONA
+========================= */
+
 .disponibilidad-persona {
   display: flex;
+
   align-items: center;
+
   gap: 6px;
+
   padding: 6px 9px;
-  border: 1px solid var(--borde);
+
+  border:
+    1px solid var(--borde);
+
   border-radius: 12px;
+
   background: #fff;
 }
 
 .dia-persona {
   display: flex;
+
   align-items: center;
+
   gap: 3px;
+
   font-weight: 800;
+
   cursor: pointer;
+
   user-select: none;
 }
 
-.dia-persona input { margin: 0; accent-color: var(--primario); }
-.dia-persona span { min-width: 15px; text-align: center; font-size: .88rem; }
-.borrar-persona { min-width: 39px; color: var(--rojo) !important; }
+.dia-persona input {
+  margin: 0;
+
+  accent-color: var(--primario);
+}
+
+.dia-persona span {
+  min-width: 15px;
+
+  text-align: center;
+
+  font-size: .88rem;
+}
+
+.borrar-persona {
+  min-width: 39px;
+
+  color: var(--rojo) !important;
+}
+
+
+/* =========================
+   PANTALLA CARGANDO PDF
+========================= */
 
 .overlay {
   position: fixed;
+
   inset: 0;
+
   z-index: 9999;
+
   display: grid;
+
   place-items: center;
-  background: rgba(35,39,61,.48);
+
+  background:
+    rgba(65, 42, 51, .48);
+
   backdrop-filter: blur(4px);
 }
 
 .modal-carga {
   min-width: 245px;
+
   display: grid;
+
   justify-items: center;
+
   gap: 9px;
+
   padding: 25px;
+
   border-radius: 20px;
+
   background: #fff;
-  box-shadow: 0 20px 60px rgba(0,0,0,.18);
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, .18);
 }
 
-.modal-carga span { color: var(--texto-suave); font-size: .86rem; }
+.modal-carga span {
+  color: var(--texto-suave);
+
+  font-size: .86rem;
+}
+
 .spinner {
   width: 36px;
   height: 36px;
-  border: 4px solid #e6e4fb;
-  border-top-color: var(--primario);
+
+  border:
+    4px solid #f8dce5;
+
+  border-top-color:
+    var(--primario);
+
   border-radius: 50%;
-  animation: girar .8s linear infinite;
+
+  animation:
+    girar .8s linear infinite;
 }
-@keyframes girar { to { transform: rotate(360deg); } }
+
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================
+   CELULAR
+========================= */
 
 @media (max-width: 700px) {
-  .app { width: min(96vw, 1500px); margin-top: 12px; }
-  .hero { padding: 23px 20px; align-items: flex-start; }
-  .hero-icon { width: 55px; height: 55px; border-radius: 16px; font-size: 1.7rem; }
-  .panel { padding: 18px; border-radius: 20px; }
-  .persona-fila { grid-template-columns: 1fr auto; }
-  .disponibilidad-persona { grid-column: 1 / -1; grid-row: 2; justify-content: space-around; }
-  .borrar-persona { grid-column: 2; grid-row: 1; }
-  .grid-dias-semana { grid-template-columns: 1fr 1fr; }
-  .calendarios { grid-template-columns: 1fr; }
-  .resultado-header { align-items: flex-start; }
-  .acciones-resultado { width: 100%; }
-  .acciones-resultado .btn { flex: 1; }
+
+  .app {
+    width: min(96vw, 1500px);
+
+    margin-top: 12px;
+  }
+
+  .hero {
+    padding: 23px 20px;
+
+    align-items: flex-start;
+  }
+
+  .hero-icon {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 16px;
+
+    font-size: 1.7rem;
+  }
+
+  .panel {
+    padding: 18px;
+
+    border-radius: 20px;
+  }
+
+  .persona-fila {
+    grid-template-columns:
+      1fr auto;
+  }
+
+  .disponibilidad-persona {
+    grid-column: 1 / -1;
+
+    grid-row: 2;
+
+    justify-content: space-around;
+  }
+
+  .borrar-persona {
+    grid-column: 2;
+
+    grid-row: 1;
+  }
+
+  .grid-dias-semana {
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+  .calendarios {
+    grid-template-columns: 1fr;
+  }
+
+  .resultado-header {
+    align-items: flex-start;
+  }
+
+  .acciones-resultado {
+    width: 100%;
+  }
+
+  .acciones-resultado .btn {
+    flex: 1;
+  }
 }
 
-/* Estilos usados también durante la captura para PDF */
+
+/* ==================================================
+   PDF
+   ESTOS ESTILOS SE APLICAN AL DESCARGAR EL CALENDARIO
+================================================== */
+
 .mes.modo-pdf {
   width: 1100px !important;
+
   box-shadow: none !important;
+
   border-radius: 0 !important;
-  border: 1px solid #dfe1ea !important;
+
+  border:
+    1px solid #ead5dd !important;
 }
-.mes.modo-pdf .celda-dia { height: 115px !important; min-height: 115px !important; }
-.mes.modo-pdf .nombre-turno { font-size: 1rem !important; }
-.mes.modo-pdf .tabla-calendario th { font-size: .9rem !important; }
-.mes.modo-pdf h3 { font-size: 1.35rem !important; }
+
+
+/* CELDAS MÁS GRANDES EN EL PDF */
+
+.mes.modo-pdf .celda-dia {
+  height: 125px !important;
+
+  min-height: 125px !important;
+
+  padding: 8px !important;
+}
+
+
+/* NOMBRES GRANDES EN EL PDF */
+
+.mes.modo-pdf .nombre-turno {
+  font-size: 18px !important;
+
+  line-height: 1.2 !important;
+
+  padding: 7px 8px !important;
+
+  font-weight: 800 !important;
+
+  background: #fce8ef !important;
+
+  color: #a9365a !important;
+}
+
+
+/* NÚMERO DEL DÍA MÁS GRANDE */
+
+.mes.modo-pdf .numero-dia {
+  width: 32px !important;
+
+  height: 32px !important;
+
+  font-size: 17px !important;
+}
+
+
+/* LUNES - MARTES - MIÉRCOLES... */
+
+.mes.modo-pdf .tabla-calendario th {
+  font-size: 16px !important;
+
+  padding: 10px 4px !important;
+
+  background: #fff7fa !important;
+}
+
+
+/* TÍTULO DEL MES */
+
+.mes.modo-pdf h3 {
+  font-size: 24px !important;
+
+  padding: 15px !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      #e75480,
+      #ee8dab
+    ) !important;
+}
