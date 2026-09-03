@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calendario de Turnos</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <div class="hero-icon">📅</div>
+      <div>
+        <p class="eyebrow">ORGANIZADOR ANUAL</p>
+        <h1>Calendario de Turnos</h1>
+        <p class="hero-text">Distribuí dos personas por día de forma equilibrada, respetando meses, feriados y disponibilidad semanal.</p>
+      </div>
+    </header>
+
+    <section class="panel configuracion">
+      <div class="titulo-seccion">
+        <span class="numero-paso">1</span>
+        <div>
+          <h2>Configuración</h2>
+          <p>Elegí el año, cargá las personas y marcá su disponibilidad.</p>
+        </div>
+      </div>
+
+      <div class="fila anio-fila">
+        <label for="anio">Año</label>
+        <input id="anio" type="number" min="2020" max="2100" value="2026" />
+      </div>
+
+      <div class="bloque">
+        <div class="encabezado-bloque">
+          <div>
+            <h3>Personas</h3>
+            <p class="subtexto">L = lunes · M = martes · X = miércoles · J = jueves · V = viernes</p>
+          </div>
+          <button id="agregarPersona" class="btn secundario" type="button">＋ Agregar persona</button>
+        </div>
+        <div id="listaPersonas" class="lista-personas"></div>
+      </div>
+
+      <div class="bloque divisor">
+        <div class="encabezado-bloque">
+          <h3>Meses incluidos</h3>
+          <div class="acciones-mini">
+            <button id="todosMeses" class="btn mini" type="button">Todos</button>
+            <button id="ningunMes" class="btn mini" type="button">Ninguno</button>
+          </div>
+        </div>
+        <div id="selectorMeses" class="grid-meses"></div>
+      </div>
+
+      <div class="bloque divisor">
+        <div class="encabezado-bloque">
+          <h3>Días de la semana</h3>
+        </div>
+        <div id="selectorDiasSemana" class="grid-dias-semana"></div>
+      </div>
+
+      <div class="acciones-principales">
+        <button id="prepararDias" class="btn secundario grande" type="button">📌 Elegir días específicos</button>
+        <button id="generar" class="btn primario grande" type="button">✨ Generar calendario</button>
+      </div>
+
+      <p id="mensaje" class="mensaje"></p>
+    </section>
+
+    <section id="panelDiasEspecificos" class="panel oculto">
+      <div class="titulo-seccion compacto">
+        <span class="numero-paso">2</span>
+        <div>
+          <h2>Días específicos</h2>
+          <p>Destildá feriados, jornadas institucionales o cualquier fecha sin turnos.</p>
+        </div>
+        <button id="cerrarDias" class="btn mini cerrar" type="button">Cerrar ✕</button>
+      </div>
+      <div id="calendariosSeleccion" class="calendarios"></div>
+    </section>
+
+    <section class="panel resultado">
+      <div class="resultado-header">
+        <div class="titulo-seccion compacto">
+          <span class="numero-paso">3</span>
+          <div>
+            <h2>Calendario anual</h2>
+            <p>Resultado de la distribución.</p>
+          </div>
+        </div>
+        <div class="acciones-resultado">
+          <button id="regenerar" class="btn secundario" type="button">↻ Volver a generar</button>
+          <button id="descargarPdf" class="btn pdf" type="button" disabled>⬇ Descargar PDF</button>
+        </div>
+      </div>
+      <div id="resumen" class="resumen"></div>
+      <div id="calendariosResultado" class="calendarios"></div>
+    </section>
+  </main>
+
+  <div id="cargandoPdf" class="overlay oculto" aria-live="polite">
+    <div class="modal-carga">
+      <div class="spinner"></div>
+      <strong>Preparando PDF...</strong>
+      <span>Armando los meses seleccionados.</span>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
