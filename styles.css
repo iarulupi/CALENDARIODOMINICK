@@ -1,0 +1,280 @@
+:root {
+  --fondo: #f4f1eb;
+  --panel: #ffffff;
+  --texto: #2d2d2d;
+  --borde: #d9d5cc;
+  --primario: #6b7cdb;
+  --primario-hover: #5869c5;
+  --secundario: #ece9f8;
+  --apagado: #efefef;
+  --feriado: #ffe7e7;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+}
+
+.app {
+  width: min(1500px, 96vw);
+  margin: 24px auto 50px;
+  display: grid;
+  gap: 20px;
+}
+
+.panel {
+  background: var(--panel);
+  border-radius: 24px;
+  padding: 22px;
+  box-shadow: 0 5px 20px rgba(0,0,0,.08);
+}
+
+h1, h2, h3 { margin-top: 0; }
+h1 { text-align: center; font-size: 2rem; }
+
+.fila {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.fila label { font-weight: 700; }
+
+input[type="number"], .persona-input {
+  padding: 10px 12px;
+  border: 2px solid var(--borde);
+  border-radius: 12px;
+  font-size: 1rem;
+}
+
+.bloque { margin-top: 22px; }
+
+.encabezado-bloque {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.lista-personas {
+  display: grid;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.persona-fila {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+}
+
+.grid-meses {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+}
+
+.grid-dias-semana {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+.check-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 2px solid var(--borde);
+  border-radius: 14px;
+  padding: 10px 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.check-card input { transform: scale(1.2); }
+
+.btn {
+  border: none;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn.primario { background: var(--primario); color: #fff; }
+.btn.primario:hover { background: var(--primario-hover); }
+.btn.secundario { background: var(--secundario); color: var(--texto); }
+.btn.mini { background: var(--apagado); padding: 7px 10px; }
+.btn.grande { min-height: 48px; }
+
+.acciones-mini, .acciones-principales {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.acciones-principales { margin-top: 24px; }
+
+.mensaje {
+  min-height: 20px;
+  font-weight: 700;
+}
+
+.oculto { display: none; }
+
+.ayuda { color: #666; }
+
+.calendarios {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 18px;
+}
+
+.mes {
+  border: 2px solid var(--borde);
+  border-radius: 18px;
+  overflow: hidden;
+  background: white;
+}
+
+.mes h3 {
+  margin: 0;
+  text-align: center;
+  padding: 12px;
+  background: #f7f5fb;
+}
+
+.tabla-calendario {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.tabla-calendario th,
+.tabla-calendario td {
+  border: 1px solid var(--borde);
+  vertical-align: top;
+}
+
+.tabla-calendario th {
+  padding: 8px 4px;
+  background: #fafafa;
+  font-size: .85rem;
+}
+
+.celda-dia {
+  min-height: 90px;
+  padding: 6px;
+}
+
+.numero-dia {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.nombre-turno {
+  display: block;
+  margin: 4px 0;
+  padding: 4px 6px;
+  border-radius: 8px;
+  background: #f2f1fb;
+  font-size: .88rem;
+}
+
+.dia-inactivo {
+  background: #f3f3f3;
+  color: #aaa;
+}
+
+.selector-fecha {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: .82rem;
+}
+
+.selector-fecha input { transform: scale(1.1); }
+
+.resumen {
+  margin-bottom: 18px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.resumen-item {
+  background: #f3f1fa;
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: .9rem;
+}
+
+@media (max-width: 700px) {
+  .grid-dias-semana { grid-template-columns: 1fr 1fr; }
+  .calendarios { grid-template-columns: 1fr; }
+}
+
+/* Disponibilidad individual por persona */
+.persona-fila {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) auto auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.disponibilidad-persona {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 8px;
+  border: 2px solid var(--borde);
+  border-radius: 12px;
+  background: #fafafa;
+}
+
+.dia-persona {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+}
+
+.dia-persona input {
+  margin: 0;
+  accent-color: var(--primario);
+}
+
+.dia-persona span {
+  min-width: 15px;
+  text-align: center;
+  font-size: .9rem;
+}
+
+.borrar-persona {
+  min-width: 38px;
+}
+
+@media (max-width: 700px) {
+  .persona-fila {
+    grid-template-columns: 1fr auto;
+  }
+
+  .disponibilidad-persona {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-content: space-around;
+  }
+
+  .borrar-persona {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
